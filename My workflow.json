@@ -1,0 +1,517 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "downloadAttachments": true,
+        "options": {
+          "forceReconnect": 10
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2.1,
+      "position": [
+        -192,
+        -512
+      ],
+      "id": "e4875b0b-98f6-4570-a54c-5201ddab0884",
+      "name": "Email Trigger (IMAP)1",
+      "executeOnce": false,
+      "credentials": {
+        "imap": {
+          "id": "pT0j5rUq4ARP9n5b",
+          "name": "IMAP account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1IDnMtfbjbAyjLvS5Bl_m_y4zofwUNfPEGZhe5Lin92k",
+          "mode": "list",
+          "cachedResultName": "Automação Fortes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1IDnMtfbjbAyjLvS5Bl_m_y4zofwUNfPEGZhe5Lin92k/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1IDnMtfbjbAyjLvS5Bl_m_y4zofwUNfPEGZhe5Lin92k/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Vencimento": "={{ $json.data_vencimento }}",
+            "Valor": "={{ $json.valor_bruto }}",
+            "Codigo_Barras": "=",
+            "CNPJ": "={{ $json.cnpj_fornecedor }}",
+            "Estabelecimento": "={{ $('Code in JavaScript1').item.json.estabelecimento_id }}",
+            "Documento": "={{ $json.numero_nf }}",
+            "Data_Entrada": "={{ $json.data_vencimento }}",
+            "Mes_Ano": "={{ $json.data_emissao }}",
+            "Emissao_NF": "={{ $json.data_emissao }}",
+            "Centro_Resultado": "0101001",
+            "Despesa": "801",
+            "Codigo": "={{ $json['C�digo'] }}",
+            "Observacao": "={{ $json.codigo_barras }}",
+            "Conta_Financeira": "={{ $('Code in JavaScript1').item.json.conta_financeira }}",
+            "Fornecedor": "={{ $json.nome_fornecedor }}",
+            "Tipo_Doc": "07"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Estabelecimento",
+              "displayName": "Estabelecimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Codigo",
+              "displayName": "Codigo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "CNPJ",
+              "displayName": "CNPJ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Fornecedor",
+              "displayName": "Fornecedor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Tipo_Doc",
+              "displayName": "Tipo_Doc",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Documento",
+              "displayName": "Documento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Data_Entrada",
+              "displayName": "Data_Entrada",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Valor",
+              "displayName": "Valor",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Mes_Ano",
+              "displayName": "Mes_Ano",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Emissao_NF",
+              "displayName": "Emissao_NF",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Centro_Resultado",
+              "displayName": "Centro_Resultado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Despesa",
+              "displayName": "Despesa",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Observacao",
+              "displayName": "Observacao",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Vencimento",
+              "displayName": "Vencimento",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Codigo_Barras",
+              "displayName": "Codigo_Barras",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status_Bot",
+              "displayName": "Status_Bot",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Conta_Financeira",
+              "displayName": "Conta_Financeira",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1152,
+        -416
+      ],
+      "id": "2594a640-ae95-42c4-85c9-efedf042e78c",
+      "name": "Append row in sheet",
+      "retryOnFail": true,
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "JkwW3Dk2fnROnTwn",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        928,
+        -416
+      ],
+      "id": "a1e007b3-5c29-4a4e-b562-8aae973627ca",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "databaseId": 352370,
+        "tableId": 800029,
+        "limit": 1,
+        "additionalOptions": {
+          "filters": {
+            "fields": [
+              {
+                "field": 6835341,
+                "value": "={{ $json.cnpj_fornecedor }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.baserow",
+      "typeVersion": 1,
+      "position": [
+        704,
+        -368
+      ],
+      "id": "66750d73-d2ab-4b25-8d48-51e9a19651d9",
+      "name": "Get many rows",
+      "credentials": {
+        "baserowApi": {
+          "id": "CAJ9SICCtosjmHwD",
+          "name": "Baserow account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "document",
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-2.5-flash",
+          "mode": "list",
+          "cachedResultName": "models/gemini-2.5-flash"
+        },
+        "text": "Atue como um especialista em processamento de documentos financeiros (OCR Inteligente).\nAnalise a imagem/PDF fornecido e extraia os dados com precisão absoluta.\n\nPASSO 1: CLASSIFICAÇÃO\nIdentifique se o documento é um \"BOLETO\" (guia de pagamento, DARF, título bancário) ou uma \"NOTA_FISCAL\" (DANFE, NFS-e, Cupom).\n\nPASSO 2: EXTRAÇÃO DE DADOS\nBusque e extraia os seguintes campos. Se um campo não existir no tipo de documento, retorne null.\n\n- tipo_documento: \"BOLETO\" ou \"NOTA_FISCAL\".\n- cnpj_pagador: Apenas números (remova pontos/traços). O CNPJ de quem está PAGANDO (Tomador/Sacado).\n- nome_fornecedor: Nome da empresa que emitiu o documento (Beneficiário/Prestador).\n- cnpj_fornecedor: Apenas números. CNPJ do emissor.\n- data_vencimento: Formato DD/MM/AAAA. (Se for NF e não tiver vencimento, use a data de emissão).\n- data_emissao: Formato DD/MM/AAAA.\n- valor_bruto: Formato numérico simples (ex: 1500.50). Use ponto para decimais, sem separador de milhar.\n- valor_liquido: Valor retirado do boleto. Formato numérico simples (ex: 1500.50). Use ponto para decimais, sem separador de milhar.\n- codigo_barras: A linha digitável do boleto (apenas números). Se for NF, retorne null.\n- numero_nf: O número da Nota Fiscal. Se for Boleto, procure se há referência ao número da NF (ex: \"Ref NF 123\"), senão retorne null.\n\nPASSO 3: REGRAS DE SAÍDA\n1. Priorize a \"Linha Digitável\" completa para o campo codigo_barras.\n2. Se houver dúvida entre dois valores, escolha o de maior destaque visual (Total a Pagar).\n3. Responda APENAS o JSON puro, sem crases (```json) ou texto adicional.\n\nEstrutura do JSON exigida:\n{\n  \"tipo_documento\": \"string\",\n  \"cnpj_pagador\": \"string\",\n  \"nome_fornecedor\": \"string\",\n  \"cnpj_fornecedor\": \"string\",\n  \"data_vencimento\": \"string\",\n  \"data_emissao\": \"string\",\n  \"valor_bruto\": \"string\",\n  \"valor_liquido\": \"string\",\n  \"codigo_barras\": \"string\",\n  \"numero_nf\": \"string\"\n}",
+        "inputType": "binary",
+        "simplify": false,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        256,
+        -512
+      ],
+      "id": "2e506304-33bd-4c06-af71-5bd5229e7dcc",
+      "name": "Analyze document",
+      "retryOnFail": true,
+      "waitBetweenTries": 500,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "3HzK8xUUn16nnYza",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const newItems = [];\n\n// Percorre cada e-mail recebido\nfor (const item of items) {\n  \n  // Verifica se o e-mail tem anexos (dados binários)\n  if (item.binary) {\n    \n    // Percorre cada anexo encontrado (attachment_0, attachment_1, etc.)\n    for (const key of Object.keys(item.binary)) {\n      \n      const arquivo = item.binary[key];\n\n      // (Opcional) Filtro de Segurança:\n      // Ignora arquivos muito pequenos (< 5KB) que geralmente são ícones de assinatura\n      // ou arquivos que não sejam PDF ou Imagem.\n      // if (arquivo.fileSize < 5000) continue; \n      \n      newItems.push({\n        json: {\n          // --- DADOS VITAIS PARA O AGREGADOR ---\n          // Estamos repassando o ID e o Assunto para poder juntar as peças lá na frente\n          messageId: item.json.messageId, \n          emailSubject: item.json.subject, \n          \n          // Contexto extra útil\n          emailFrom: item.json.from,\n          emailDate: item.json.date,\n          originalFileName: arquivo.fileName\n        },\n        binary: {\n          // Padroniza o nome do binário para 'data' \n          // O nó do Google Gemini vai procurar exatamente por 'data'\n          data: arquivo\n        }\n      });\n    }\n  }\n}\n\nreturn newItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        32,
+        -512
+      ],
+      "id": "cf31bd19-2f6a-440e-887a-0f54133cad17",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "// --- CONFIGURAÇÃO ---\n\n// 1. Mapeamento de Lojas (CNPJ -> ID)\nconst mapaLojas = {\n  \"10372500000108\": 1, \n  \"10372500000299\": 2, \n  \"10372500000370\": 3 \n};\n\n// 2. Mapeamento de Contas\nconst contasPorLoja = {\n  1: \"07\", // Santander Matriz\n  2: \"08\", // Santander Life\n  3: \"16\"  // Santander Sul\n};\n\n// 3. Nomes para o arquivo (ESTABELECIMENTO)\nconst nomesLojas = {\n  1: \"MATRIZ\",\n  2: \"FILIAL\",\n  3: \"SUL\"\n};\n\n// 4. Mapeamento de PASTAS DO GOOGLE DRIVE\nconst pastasPorLoja = {\n  1: \"1p4zU1FWu76UkVCkmHRmbEshm9dn0eDUI\", \n  2: \"1DCx-PnELIVIaC4FRgeehCo2hzXefBt5i\",\n  3: \"1V9_razfcRm0l_VLnfSGQV002iEVtmvQN\"\n};\n\n// ID de pasta fallback (opcional)\nconst pastaFallback = \"COLE_AQUI_ID_PASTA_ERROS\"; \n\n// --- FIM DA CONFIGURAÇÃO ---\n\nconst newItems = [];\n\nfor (const item of items) {\n  try {\n    const cnpjBruto = item.json.cnpj_pagador || \"\";\n    const cnpjLimpo = cnpjBruto.toString().replace(/\\D/g, '');\n\n    // Define ID da Loja\n    let lojaId = \"DESCONHECIDO\";\n    if (mapaLojas[cnpjLimpo]) {\n        lojaId = mapaLojas[cnpjLimpo];\n    }\n\n    // Define Conta, Nome da Loja e Pasta\n    let contaDefinida = \"INDEFINIDA\";\n    if (contasPorLoja[lojaId]) contaDefinida = contasPorLoja[lojaId];\n\n    let nomeLojaArquivo = nomesLojas[lojaId] || `LOJA_${lojaId}`;\n\n    let pastaDestino = pastaFallback;\n    if (pastasPorLoja[lojaId]) {\n        pastaDestino = pastasPorLoja[lojaId];\n    }\n\n    // --- TRATAMENTO DO NOME DO ARQUIVO ---\n    \n    // Limpa caracteres especiais do fornecedor e limita tamanho\n    const nomeFornecedor = (item.json.nome_fornecedor || \"Fornecedor\").replace(/[^a-zA-Z0-9 ]/g, \"\").substring(0, 30).trim();\n    \n    // Formata a data: 20/02/2026 -> 20-02-2026\n    const dataVencimento = (item.json.data_vencimento || \"00-00-0000\").replace(/\\//g, '-');\n    \n    // Verifica se temos o número da NF\n    const numeroNF = item.json.numero_nf;\n\n    let nomeArquivoFinal = \"\";\n\n    if (numeroNF) {\n        // PADRÃO COM NF: \"MATRIZ - NF 1234 - KALUNGA - 20-02-2026.pdf\"\n        nomeArquivoFinal = `${nomeLojaArquivo} - NF ${numeroNF} - ${nomeFornecedor} - ${dataVencimento}.pdf`;\n    } else {\n        // PADRÃO SEM NF: \"MATRIZ - KALUNGA - 20-02-2026.pdf\"\n        nomeArquivoFinal = `${nomeLojaArquivo} - ${nomeFornecedor} - ${dataVencimento}.pdf`;\n    }\n\n    // --- FIM DO TRATAMENTO ---\n\n    item.json = {\n      ...item.json,\n      estabelecimento_id: lojaId,\n      conta_financeira: contaDefinida,\n      cnpj_limpo: cnpjLimpo,\n      nome_arquivo_novo: nomeArquivoFinal,\n      target_folder_id: pastaDestino\n    };\n    \n    // Atualiza nome do arquivo no binário para upload\n    if (item.binary && item.binary.data) {\n        item.binary.data.fileName = nomeArquivoFinal;\n    }\n    \n  } catch (error) {\n    item.json.error = error.message;\n  }\n  newItems.push(item);\n}\n\nreturn newItems;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        704,
+        -608
+      ],
+      "id": "6184bf50-cbf8-4b6b-98fb-77861a205fe3",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// AGREGADOR V5: Recupera o Binário Original e Metadados perdidos pelo Gemini\n\n// 1. RESGATE DOS DADOS ORIGINAIS\n// O Gemini limpa o binário e o ID do email, então vamos buscar no nó anterior.\n// IMPORTANTE: O nome dentro dos parênteses deve ser IGUAL ao nome do seu primeiro Code Node.\nconst itensOriginais = $('Code in JavaScript').all(); \n\nconst grupos = {};\n\n// Percorre os itens do Gemini (items) e os Originais (itensOriginais) em paralelo\nfor (let i = 0; i < items.length; i++) {\n  const itemGemini = items[i];\n  const itemOriginal = itensOriginais[i]; // Pega o item correspondente lá do começo\n\n  // Parser do Gemini\n  let dadosIA = {};\n  try {\n      // Tenta pegar o texto de candidates ou content\n      const rawText = itemGemini.json.candidates?.[0]?.content?.parts?.[0]?.text || \n                      itemGemini.json.content?.parts?.[0]?.text || \n                      itemGemini.json.text || \"{}\";\n      dadosIA = JSON.parse(rawText.replace(/```json|```/g, '').trim());\n  } catch (e) {}\n\n  // FUSÃO MÁGICA:\n  // Pegamos os dados da IA + Os dados do email original (Subject, ID) + O Binário (PDF)\n  const itemCompleto = { \n      ...itemOriginal.json, // Recupera messageId, emailSubject\n      ...dadosIA,           // Adiciona o que a IA leu\n      binary: itemOriginal.binary // RECUPERA O ARQUIVO PDF!\n  };\n  \n  // Chave única (Assunto ou ID)\n  const key = itemCompleto.emailSubject || itemCompleto.messageId || \"sem_assunto\";\n  \n  if (!grupos[key]) {\n    grupos[key] = { boleto: null, nf: null, metadados: null };\n  }\n\n  // Classifica\n  if (dadosIA.tipo_documento === 'BOLETO') {\n      grupos[key].boleto = itemCompleto;\n  } else if (dadosIA.tipo_documento === 'NOTA_FISCAL') {\n      grupos[key].nf = itemCompleto;\n  }\n  \n  // Guarda metadados\n  if (!grupos[key].metadados) {\n      grupos[key].metadados = {\n          emailSubject: itemCompleto.emailSubject,\n          messageId: itemCompleto.messageId,\n          emailFrom: itemCompleto.emailFrom\n      };\n  }\n}\n\n// 2. MONTAGEM FINAL (Mantida igual)\nconst itensFinais = [];\n\nfor (const key of Object.keys(grupos)) {\n  const g = grupos[key];\n  const boleto = g.boleto || {}; \n  const nf = g.nf || {};         \n  \n  const itemFinal = {\n    json: {\n      ...g.metadados, \n      \n      // DADOS FINANCEIROS (Só do Boleto)\n      valor_bruto: boleto.valor_bruto,\n      valor_pagamento: boleto.valor_pagamento,\n      data_vencimento: boleto.data_vencimento,\n      codigo_barras: boleto.codigo_barras,\n      cnpj_pagador: boleto.cnpj_pagador || nf.cnpj_pagador,\n      \n      // DADOS FISCAIS (NF)\n      numero_nf: nf.numero_nf,\n      data_emissao: nf.data_emissao || boleto.data_emissao,\n      nome_fornecedor: nf.nome_fornecedor || boleto.nome_fornecedor,\n      cnpj_fornecedor: nf.cnpj_fornecedor || boleto.cnpj_fornecedor,\n      \n      tem_boleto: !!g.boleto,\n      tem_nf: !!g.nf\n    },\n    // Binário: Prioriza o Boleto. Se não tiver, usa o da NF.\n    // AGORA ISSO VAI FUNCIONAR POIS RECUPERAMOS O BINÁRIO!\n    binary: boleto.binary || nf.binary\n  };\n\n  itensFinais.push(itemFinal);\n}\n\nreturn itensFinais;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        -512
+      ],
+      "id": "908fb036-6b16-4072-be4f-c82c1c7037db",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "name": "={{ $json.nome_arquivo_novo }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.target_folder_id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        928,
+        -656
+      ],
+      "id": "e12ec60d-841c-4b31-9da0-1cccd58e1f51",
+      "name": "Upload file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "ztIZmeC71l3xeDpp",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Email Trigger (IMAP)1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        []
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Analyze document": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Analyze document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "53ab00ba-81d2-4c14-bed8-3c5368557e62",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "60c4718654984f0b57c74625ba77ee3d2048c67eecb75d66d9a0e8fa073b0a9c"
+  },
+  "id": "bQ89bEfB3htGKqo1SsGRp",
+  "tags": []
+}
