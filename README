@@ -1,0 +1,69 @@
+Aqui está a versão limpa, texto puro, sem nenhuma formatação especial ou emojis:
+
+Bot de Contas a Pagar (n8n + Python)
+
+Projeto para automatizar o lançamento de NFs e Boletos no sistema Fortes. Basicamente: O n8n organiza os dados na nuvem e o Python faz a digitação no sistema local.
+
+COMO FUNCIONA O FLUXO
+
+Backend (n8n) O n8n monitora o e-mail e faz o trabalho pesado de tratar os dados antes de salvar:
+
+Lê o PDF: Usa Regex (expressões regulares) pra caçar CNPJ, Data e Valor. Nada de IA paga, é lógica pura pra economizar.
+
+Consulta Fornecedor: Pega o CNPJ extraído e bate lá no Baserow pra descobrir qual é a Categoria e o Centro de Custo.
+
+Salva: Joga o PDF renomeado no Drive e os dados prontos numa planilha do Google Sheets.
+
+Robô Local (Python) É um executável (.exe) que roda na máquina do financeiro.
+
+Lê a planilha que o n8n alimentou.
+
+Abre o Fortes.
+
+Sai preenchendo os campos e salvando os lançamentos (usando pyautogui para controlar o mouse).
+
+STACK
+
+n8n (Lógica e Integrações)
+
+Baserow (Banco de dados de fornecedores)
+
+Google Sheets/Drive
+
+Python 3 (pandas pra ler dados, pyautogui pra clicar)
+
+COMO RODAR
+
+No n8n (Servidor):
+
+Importe o arquivo .json do workflow.
+
+Ajuste as credenciais de E-mail (IMAP) e Google.
+
+Confira se os IDs das pastas e da tabela do Baserow estão batendo.
+
+No PC (Robô):
+
+Instale as libs: pip install pandas openpyxl pyautogui auto-py-to-exe
+
+Prints de Referência: As imagens que o robô usa pra achar os botões estão na pasta /assets. Importante: Se trocar de monitor ou resolução, tem que tirar os prints de novo, senão ele clica no vazio.
+
+Gerar o Executável: Rode o comando auto-py-to-exe, selecione o robo.py, marque OneFile e não esqueça de adicionar a pasta /assets nos arquivos adicionais.
+
+SOBRE A EXTRAÇÃO DE DADOS
+
+Como não estamos usando API paga da OpenAI, a extração é feita via código:
+
+CNPJ: O script limpa pontos e traços pra bater com o banco.
+
+Valor: Ele pega sempre o maior valor numérico encontrado no PDF (geralmente é o total).
+
+Boletos: Procura sequências de 44 a 48 dígitos. Se o PDF for imagem (escaneado), o robô não vai ler. Tem que ser PDF pesquisável.
+
+DICAS DE USO
+
+Mouse Preso: Enquanto o robô Python estiver rodando, não mexa no mouse. Ele vai brigar com você pelo controle.
+
+Travou?: Leve o mouse rápido para o canto superior esquerdo da tela (é o "botão de pânico" do PyAutoGUI) para parar o script.
+
+Cadastrou fornecedor novo?: Atualize o Baserow, senão o n8n não vai achar o Centro de Custo e vai deixar o campo em branco na planilha.
