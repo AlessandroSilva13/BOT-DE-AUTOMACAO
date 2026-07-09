@@ -1,5 +1,3 @@
-Aqui está a versão limpa, texto puro, sem nenhuma formatação especial ou emojis:
-
 Bot de Contas a Pagar (n8n + Python)
 
 Projeto para automatizar o lançamento de NFs e Boletos no sistema Fortes. Basicamente: O n8n organiza os dados na nuvem e o Python faz a digitação no sistema local.
